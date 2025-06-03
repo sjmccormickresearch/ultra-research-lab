@@ -1,7 +1,7 @@
-# 🧪 Ultra Testnet Research Toolkit
-> A lightweight, script-based framework for tracking smart contract activity and ecosystem development on Ultra’s testnet.
+# 🧪 Ultra Research Toolkit
+> A lightweight, script-based framework for tracking smart contract activity and analyzing ecosystem development across Ultra’s **testnet** and **public code repositories**.
 
-This project tracks real on-chain activity and code-level infrastructure across the Ultra ($UOS) testnet. Our goal is to evaluate **developer momentum**, **contract deployment**, and **ecosystem readiness** by combining live testnet analysis with deep repo exploration.
+This toolkit captures real on-chain activity from Ultra’s ($UOS) testnet alongside code-level signals from its open-source infrastructure. The goal is to evaluate **developer momentum**, **contract deployment patterns**, and **ecosystem readiness** by combining live testnet block analysis with deep repo exploration.
 
 ---
 
