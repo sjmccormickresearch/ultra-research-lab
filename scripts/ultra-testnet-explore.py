@@ -6,7 +6,7 @@ from datetime import datetime
 ## Explore ultra's testnet, script set to 1 month worth of blocks
 
 # === SETTINGS ===
-CSV_FILE = "data/ultra_testnet_log.csv"
+CSV_FILE = "data/ultra_testnet_log_april.csv"
 BLOCKS_TO_SCAN = 10000
 
 # === FILTERS ===
@@ -82,7 +82,8 @@ def write_to_csv(rows, filename):
 # === RUN ===
 if __name__ == "__main__":
     latest_block = get_latest_block_num()
-    rows = scan_blocks(latest_block, BLOCKS_TO_SCAN)
+    start_block = latest_block - BLOCKS_TO_SCAN  # go back to where your last run started
+    rows = scan_blocks(start_block, BLOCKS_TO_SCAN)
     write_to_csv(rows, CSV_FILE)
 
     print(f"\n✅ Logged {len(rows)} actions to {CSV_FILE}")
