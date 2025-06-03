@@ -23,8 +23,7 @@ This project tracks real on-chain activity and code-level infrastructure across 
 ultra-research/
 ├── data/        # CSV logs of contract activity, key account usage
 ├── scripts/     # Python tools for scanning, parsing, and analyzing
-├── docs/        # Methodology, system notes, and research insights
-└── notebooks/   # (Optional) For Jupyter or Colab-based exploration
+└── docs/        # Methodology, system notes, and research insights
 ```
 --- 
 
