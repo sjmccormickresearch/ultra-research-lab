@@ -14,6 +14,7 @@ This toolkit captures real on-chain activity from Ultra’s ($UOS) testnet along
   - Crude network mapping (accounts, actors, token flow)
   - Contract-to-repo linking and architecture clues (e.g. RAM/POWER enforcement, bridge logic)
   - Repo cloning for reproducible offline analysis
+  - Transcriber for youtube (mp3/mp4) to quickly analyze developments and other info
 
 ---
 

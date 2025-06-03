@@ -61,7 +61,18 @@ This revealed:
 
 ---
 
-## 5. Infrastructure for Open Source Archiving
+### 5. Transcriber for Audio/Video Files
+
+Developed (vibe coded) a transcriber to take ripped audio or video files from Ultra updates, converting them into text to be easily analyzed by ChatGPT or other AI.
+
+- Rip the YouTube video
+- Place it in the same folder as the transcriber
+- Name it appropriately and code it into the script
+
+This allowed for quick analysis of weekly updates released by Ultra - specifically Ultra Re:Load - as well as material from Cloak or others.
+
+
+## 6. Infrastructure for Open Source Archiving
 
 We created a `ultra-research` folder with the following structure:
 
@@ -70,6 +81,8 @@ ultra-research/
 ├── data/ ← CSVs from testnet scan
 ├── scripts/ ← Python tools (testnet scraper, analyzer, etc.)
 ├── docs/ ← Methodology, key takeaways, README
+
+---
 
 
 
