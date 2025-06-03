@@ -40,19 +40,24 @@ This clarified the difference between passive and active modules — and helped 
 
 ---
 
-## 4. Ultra Testnet Activity Scanner
+### 4. Ultra Testnet Activity Scanner
 
 We developed and refined a Python script to:
-- Fetch the latest block from `https://api.testnet.ultra.io/v1/chain/get_info`
-- Scan historical blocks via `/v1/chain/get_block`
-- Extract meaningful actions (e.g. `setcode`, `setabi`, `newaccount`, `pushrate`)
-- Track known accounts like `bridge.ultra`, `rng.ultra`, `vaulta`, `cloakcore`, etc.
-- Log activity and save top contracts to CSV
+
+- Fetch the latest block from [`/v1/chain/get_info`](https://api.testnet.ultra.io/v1/chain/get_info)  
+- Scan historical blocks using `/v1/chain/get_block`  
+- Extract meaningful actions (e.g. `setcode`, `setabi`, `newaccount`, `pushrate`, `setevmblk.a`)  
+- Track known accounts like `ultra.bridge`, `ultra.oracle`, `ultra.rng`, `ultra.unqstk`, and `ultra.val1`–`val3`  
+- Log activity and write structured data to CSV
 
 This revealed:
-- High-frequency data feeds from `eosio.oracle`
-- Signs of Bridge, RNG, Vaulta, and GameHub testing
-- Spikes in contract deployments and updates, suggesting pre-mainnet readiness
+
+- **Consistent oracle updates** via `pushrate` from `ultra.oracle`  
+- **Bridge-related anchoring** through `setevmblk.a` on `ultra.bridge`, validated by `ultra.val1`, `ultra.val2`, and `ultra.val3`  
+- **RNG system tests** with `killjobs` and `setpubkey` from `ultra.rng`  
+- **Staking or reward testing** from `ultra.unqstk` using `claimreward`  
+- **Structured, timestamped action logs**, helping identify development surges and testnet readiness patterns
+
 
 ---
 
