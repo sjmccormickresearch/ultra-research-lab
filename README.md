@@ -14,7 +14,7 @@ This toolkit captures real on-chain activity from Ultra’s ($UOS) testnet along
   - Crude network mapping (accounts, actors, token flow)
   - Contract-to-repo linking and architecture clues (e.g. RAM/POWER enforcement, bridge logic)
   - Repo cloning for reproducible offline analysis
-  - Transcriber for youtube (mp3/mp4) to quickly analyze developments and other info
+  - Transcription tool for MP3/MP4 files - ideal for dev calls, AMAs, or ecosystem updates
 
 ---
 
@@ -22,10 +22,11 @@ This toolkit captures real on-chain activity from Ultra’s ($UOS) testnet along
 
 ```bash
 ultra-research/
-├── data/        # CSV logs of contract activity, key account usage
-├── scripts/     # Python tools for scanning, parsing, and analyzing
-└── docs/        # Methodology, system notes, and research insights
+├── data/      # CSV logs of contract activity and key account usage
+├── scripts/   # Python tools for scanning and parsing testnet + repo data
+└── docs/      # Notes, maps, and research insights
 ```
+
 --- 
 
 ## 🔧 Setup & Usage
