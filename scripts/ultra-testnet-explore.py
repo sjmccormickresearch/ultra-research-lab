@@ -1,13 +1,15 @@
 import requests
 import csv
 import time
+import os
 from datetime import datetime
 
-## Explore ultra's testnet, script set to 1 month worth of blocks
+## Explore Ultra's testnet — script set to scan March 2025 blocks
 
 # === SETTINGS ===
-CSV_FILE = "data/ultra_testnet_log_april.csv"
-BLOCKS_TO_SCAN = 10000
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+CSV_FILE = os.path.join(BASE_DIR, "data", "ultra_testnet_log_march.csv")
+BLOCKS_TO_SCAN = 10000  # Approx. 1 month
 
 # === FILTERS ===
 interesting_names = {"setcode", "setabi", "newaccount"}
@@ -29,8 +31,7 @@ def get_block(block_num):
 
 # === MAIN LOGIC ===
 def scan_blocks(start_block, num_blocks):
-    print("⏳ Fetching latest block...")
-    print(f"📍 Starting from block {start_block}")
+    print("⏳ Fetching blocks starting from:", start_block)
     rows = []
 
     for b in range(start_block, start_block - num_blocks, -1):
@@ -73,6 +74,7 @@ def scan_blocks(start_block, num_blocks):
 
 # === CSV WRITING ===
 def write_to_csv(rows, filename):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, mode="a", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=["block_num", "timestamp", "action_name", "account", "actor", "multi_action", "tag"])
         if f.tell() == 0:
@@ -82,8 +84,10 @@ def write_to_csv(rows, filename):
 # === RUN ===
 if __name__ == "__main__":
     latest_block = get_latest_block_num()
-    start_block = latest_block - BLOCKS_TO_SCAN  # go back to where your last run started
+    start_block = latest_block - (2 * BLOCKS_TO_SCAN)  # Jump back ~2 months (start of March)
     rows = scan_blocks(start_block, BLOCKS_TO_SCAN)
+
+    print(f"📁 Writing to: {CSV_FILE}")
     write_to_csv(rows, CSV_FILE)
 
     print(f"\n✅ Logged {len(rows)} actions to {CSV_FILE}")
