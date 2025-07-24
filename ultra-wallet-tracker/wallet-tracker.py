@@ -85,3 +85,33 @@ if __name__ == "__main__":
             print(f"🆕 {w['name']} | created by {w['creator']} at {w['timestamp']}")
     else:
         print("ℹ️ No new wallets found.")
+
+
+
+### PLOT IT
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+def plot_wallet_growth(conn):
+    df = pd.read_sql_query("SELECT timestamp FROM wallets", conn)
+    df["date"] = pd.to_datetime(df["timestamp"]).dt.date
+    daily_counts = df.groupby("date").size().reset_index(name="wallets_created")
+
+    # Save to CSV (optional)
+    daily_counts.to_csv("wallet_growth_timeseries.csv", index=False)
+
+    # Plot
+    plt.figure(figsize=(10, 5))
+    plt.plot(daily_counts["date"], daily_counts["wallets_created"], marker="o")
+    plt.title("New Ultra Wallets Created Per Day")
+    plt.xlabel("Date")
+    plt.ylabel("Wallets Created")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig("wallets_growth.png")
+    plt.close()
+    print("📊 Saved graph to wallets_growth.png")
+
+# Call this at the end of the script:
+plot_wallet_growth(conn)
